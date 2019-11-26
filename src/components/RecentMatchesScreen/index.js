@@ -1,43 +1,36 @@
 import React, { useEffect, useState } from 'react'
-import {
-  FlatList,
-  View,
-  Text,
-  ActivityIndicator,
-  StyleSheet
-} from 'react-native'
+import { FlatList, ActivityIndicator, Text } from 'react-native'
 import { HeaderTitle, HeaderWrapper } from '../../styles/header'
+import { Container, CenterItem, ErrorText } from '../../styles/MainScreen'
 import { MatchItem } from './MatchItem'
-import styled from 'styled-components'
 import { cookieUtil, mapUtil, gameModeUtil, gameResultUtil } from './util'
-
-const Container = styled.SafeAreaView`
-  background-color: ${props => props.theme.color.bg.background};
-  flex: 1;
-`
 
 export const RecentMatchesScreen = () => {
   const [data, setData] = useState('')
   const [error, setError] = useState('')
 
   const fetchGamerData = async () => {
-    const data = await fetch(
-      `https://profile.callofduty.com/papi-client/crm/cod/v2/title/mw/platform/psn/gamer/smackmeister/matches/days/20`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          Cookie: cookieUtil
+    try {
+      const data = await fetch(
+        `https://profile.callofduty.com/papi-client/crm/cod/v2/title/mw/platform/psn/gamer/smackmeister/matches/days/20`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Cookie: cookieUtil
+          }
         }
+      )
+      const response = await data.json()
+      console.log(response)
+      if (response.status === 'success') {
+        setData(response.data.matches)
       }
-    )
-    const response = await data.json()
-
-    if (response.status === 'success') {
-      console.log(response, '<---response')
-      setData(response.data.matches)
-    }
-    if (response.status === 'error') {
-      setError('You must login to continue.')
+      if (response.status === 'error') {
+        setError('You must login to continue.')
+        console.log(error)
+      }
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -45,7 +38,7 @@ export const RecentMatchesScreen = () => {
     fetchGamerData()
   }, [])
 
-  const renderList = () => {
+  const renderContent = () => {
     if (data) {
       return (
         <FlatList
@@ -70,18 +63,25 @@ export const RecentMatchesScreen = () => {
           }}
         />
       )
+    }
+    if (error) {
+      return (
+        <CenterItem>
+          <ErrorText>{error}</ErrorText>
+        </CenterItem>
+      )
     } else {
       return (
-        <View style={[styles.container, styles.horizontal]}>
+        <CenterItem>
           <ActivityIndicator size='large' color='#FFFFFF' />
-        </View>
+        </CenterItem>
       )
     }
   }
 
   return (
     <>
-      <Container>{renderList()}</Container>
+      <Container>{renderContent()}</Container>
     </>
   )
 }
@@ -100,15 +100,3 @@ RecentMatchesScreen.navigationOptions = {
     </HeaderWrapper>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center'
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10
-  }
-})
