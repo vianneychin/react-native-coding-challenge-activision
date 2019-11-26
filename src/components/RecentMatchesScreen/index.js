@@ -9,7 +9,7 @@ import {
 import { HeaderTitle, HeaderWrapper } from '../../styles/header'
 import { MatchItem } from './MatchItem'
 import styled from 'styled-components'
-import { cookieUtil, mapUtil, gameModeUtil } from './util'
+import { cookieUtil, mapUtil, gameModeUtil, gameResultUtil } from './util'
 
 const Container = styled.SafeAreaView`
   background-color: ${props => props.theme.color.bg.background};
@@ -54,12 +54,17 @@ export const RecentMatchesScreen = () => {
           renderItem={({ item }) => {
             return (
               <MatchItem
-                matchResult={item.result}
+                matchResult={gameResultUtil(item.result)}
                 gameMap={mapUtil(item.map)}
                 gameMode={gameModeUtil(item.mode)}
                 playerKills={item.playerStats.kills}
                 playerDeaths={item.playerStats.deaths}
                 playerAccuracy={item.playerStats.accuracy.toFixed(2)}
+                winOrLoseBG={
+                  gameResultUtil(item.result) === 'W'
+                    ? 'rgb(158, 144, 62)'
+                    : 'rgb(51, 51, 51)'
+                }
               />
             )
           }}

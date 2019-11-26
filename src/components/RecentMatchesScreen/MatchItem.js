@@ -1,5 +1,4 @@
-import React from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import React, { useState } from 'react'
 import {
   MatchItemContainer,
   CellHeader,
@@ -19,7 +18,8 @@ export const MatchItem = ({
   gameMode,
   playerKills,
   playerDeaths,
-  playerAccuracy
+  playerAccuracy,
+  winOrLoseBG
 }) => {
   return (
     <MatchItemContainer>
@@ -37,7 +37,7 @@ export const MatchItem = ({
           <GameMode>{gameMode}</GameMode>
         </Column>
         <Column>
-          <MatchResult>
+          <MatchResult style={{ backgroundColor: winOrLoseBG }}>
             <WinOrLose>{matchResult}</WinOrLose>
           </MatchResult>
         </Column>
