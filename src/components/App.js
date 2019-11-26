@@ -1,11 +1,14 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { theme } from '../styles/theme'
-import { RecentMatchesScreen } from './RecentMatchesScreen'
-import NavigationContainer from '../navigation'
+import Router from '../navigation'
+import { StatusBar } from 'react-native'
 
 export const App = () => (
-  <ThemeProvider theme={theme}>
-    <NavigationContainer />
-  </ThemeProvider>
+  <>
+    <StatusBar barStyle='light-content' />
+    <ThemeProvider theme={theme}>
+      <Router />
+    </ThemeProvider>
+  </>
 )

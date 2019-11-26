@@ -6,6 +6,6 @@ const AppNavigator = createStackNavigator({
   RecentMatchesScreen
 })
 
-const NavigationContainer = createAppContainer(AppNavigator)
+const Router = createAppContainer(AppNavigator)
 
-export default NavigationContainer
+export default Router
