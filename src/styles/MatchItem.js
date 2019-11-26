@@ -27,7 +27,6 @@ export const Column = styled.View`
     if (props.leftColumn) {
       return `
         flex: 2;
-        padding: 2.5%;
         display: flex;
         alignItems: flex-start;
         padding: 4%;

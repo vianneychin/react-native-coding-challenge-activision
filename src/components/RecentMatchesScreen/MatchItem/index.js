@@ -10,7 +10,7 @@ import {
   GameMode,
   PlayerData,
   PlayerDataText
-} from '../../styles/MatchItem'
+} from '../../../styles/MatchItem'
 
 export const MatchItem = ({
   matchResult,
