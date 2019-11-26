@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   MatchItemContainer,
   CellHeader,
@@ -24,15 +24,7 @@ export const MatchItem = ({
   return (
     <MatchItemContainer>
       <CellHeader>
-        <Column
-          flex={() => '2'}
-          style={{
-            padding: '2.5%',
-            display: 'flex',
-            alignItems: 'flex-start',
-            padding: '4%'
-          }}
-        >
+        <Column leftColumn>
           <GameMap>{gameMap}</GameMap>
           <GameMode>{gameMode}</GameMode>
         </Column>

@@ -1,0 +1,31 @@
+import React from 'react'
+import { FlatList, View, Text } from 'react-native'
+import { MatchItem } from './MatchItem'
+import { mapUtil, gameModeUtil, gameResultUtil } from './util'
+
+export const MatchList = ({ data }) => {
+  console.log(data)
+  return (
+    <FlatList
+      data={data}
+      keyExtractor={item => item.matchID}
+      renderItem={({ item }) => {
+        return (
+          <MatchItem
+            matchResult={gameResultUtil(item.result)}
+            gameMap={mapUtil(item.map)}
+            gameMode={gameModeUtil(item.mode)}
+            playerKills={item.playerStats.kills}
+            playerDeaths={item.playerStats.deaths}
+            playerAccuracy={item.playerStats.accuracy.toFixed(2)}
+            winOrLoseBG={
+              gameResultUtil(item.result) === 'W'
+                ? 'rgb(158, 144, 62)'
+                : 'rgb(51, 51, 51)'
+            }
+          />
+        )
+      }}
+    />
+  )
+}

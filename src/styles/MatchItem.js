@@ -23,7 +23,18 @@ export const CellBody = styled(Row)`
   flex-direction: row;
 `
 export const Column = styled.View`
-  flex: ${props => props.flex};
+  flex: 1;
+  ${props => {
+    if (props.leftColumn) {
+      return `
+        flex: 2;
+        padding: 2.5%;
+        display: flex;
+        alignItems: flex-start;
+        padding: 4%;
+      `
+    }
+  }};
 `
 export const MatchResult = styled.View`
   height: 50%;
@@ -58,8 +69,8 @@ export const PlayerDataText = styled(StyledText)`
       ? props.theme.color.txt.textTitle
       : props.theme.color.txt.textValue};
 
-  font-weight: 600;
   font-size: ${props => (props.label ? '15px' : '25px')};
   position: relative;
+  font-weight: 600;
   top: ${props => (props.label ? '10px' : '0px')};
 `
