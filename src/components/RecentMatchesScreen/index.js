@@ -13,7 +13,7 @@ import {
 export const RecentMatchesScreen = () => {
   const [data, setData] = useState('')
   const [error, setError] = useState('')
-  const isCancelled = React.useRef(false)
+  const isCancelled = useRef(false)
 
   const api =
     'https://profile.callofduty.com/papi-client/crm/cod/v2/title/mw/platform/psn/gamer/smackmeister/matches/days/20'

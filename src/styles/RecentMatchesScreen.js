@@ -1,9 +1,12 @@
 import styled from 'styled-components'
+import { Platform } from 'react-native'
 import { StyledText } from './text'
 
 export const HeaderTitle = styled(StyledText)`
   color: ${props => props.theme.color.txt.textTitle};
   font-size: 20px;
+  font-family: ${props => (Platform.OS === 'android' ? 'Roboto' : 'Arial')};
+  font-weight: bold;
 `
 export const HeaderWrapper = styled.View`
   width: 50%;

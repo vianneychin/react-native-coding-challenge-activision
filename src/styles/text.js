@@ -1,10 +1,10 @@
-import { Text } from 'react-native'
+import { Text, Platform } from 'react-native'
 import styled from 'styled-components'
 
 export const StyledText = styled(Text).attrs(props => ({
   adjustsFontSizeToFit: true,
   numberOfLines: 1
 }))`
-  font-weight: 800;
-  font-family: 'Arial';
+  font-family: ${Platform.OS === 'android' ? 'Roboto' : 'Arial'};
+  font-weight: ${Platform.OS === 'android' ? 'bold' : '800'};
 `

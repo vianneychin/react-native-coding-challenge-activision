@@ -1,6 +1,6 @@
 import React from 'react'
 import { FlatList } from 'react-native'
-import { MatchItem } from './MatchItem'
+import { MatchItem } from './MatchItem/MatchItem'
 import { mapUtil, gameModeUtil, gameResultUtil } from './util'
 
 export const MatchList = ({ data }) => {

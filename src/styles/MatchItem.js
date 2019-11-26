@@ -3,7 +3,6 @@ import { StyledText } from './text'
 
 export const MatchItemContainer = styled.View`
   height: 180px;
-  background-color: red;
   display: flex;
   flex-direction: column;
   margin: 15px;
@@ -39,7 +38,6 @@ export const Column = styled.View`
 export const MatchResult = styled.View`
   height: 50%;
   width: 50%;
-  background-color: red;
   align-self: flex-end;
   display: flex;
   justify-content: center;
