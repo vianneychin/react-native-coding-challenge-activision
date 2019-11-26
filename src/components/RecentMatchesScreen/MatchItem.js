@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import {
   MatchItemContainer,
   CellHeader,
@@ -13,7 +13,14 @@ import {
   PlayerDataText
 } from '../../styles/MatchItem'
 
-export const MatchItem = () => {
+export const MatchItem = ({
+  matchResult,
+  gameMap,
+  gameMode,
+  playerKills,
+  playerDeaths,
+  playerAccuracy
+}) => {
   return (
     <MatchItemContainer>
       <CellHeader>
@@ -26,27 +33,27 @@ export const MatchItem = () => {
             padding: '4%'
           }}
         >
-          <GameMap>ARDENNES FOREST</GameMap>
-          <GameMode>DOMINATION</GameMode>
+          <GameMap>{gameMap}</GameMap>
+          <GameMode>{gameMode}</GameMode>
         </Column>
         <Column>
           <MatchResult>
-            <WinOrLose>W</WinOrLose>
+            <WinOrLose>{matchResult}</WinOrLose>
           </MatchResult>
         </Column>
       </CellHeader>
       <CellBody>
-        <PlayerData >
+        <PlayerData>
           <PlayerDataText label>KILLS</PlayerDataText>
-          <PlayerDataText>10</PlayerDataText>
+          <PlayerDataText>{playerKills}</PlayerDataText>
         </PlayerData>
-        <PlayerData >
+        <PlayerData>
           <PlayerDataText label>DEATHS</PlayerDataText>
-          <PlayerDataText>12</PlayerDataText>
+          <PlayerDataText>{playerDeaths}</PlayerDataText>
         </PlayerData>
-        <PlayerData >
+        <PlayerData>
           <PlayerDataText label>ACCURACY</PlayerDataText>
-          <PlayerDataText>.21</PlayerDataText>
+          <PlayerDataText>{playerAccuracy}</PlayerDataText>
         </PlayerData>
       </CellBody>
     </MatchItemContainer>
