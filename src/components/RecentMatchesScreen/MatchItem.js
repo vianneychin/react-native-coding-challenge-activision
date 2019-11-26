@@ -8,7 +8,9 @@ import {
   MatchResult,
   WinOrLose,
   GameMap,
-  GameMode
+  GameMode,
+  PlayerData,
+  PlayerDataText
 } from '../../styles/MatchItem'
 
 export const MatchItem = () => {
@@ -33,7 +35,20 @@ export const MatchItem = () => {
           </MatchResult>
         </Column>
       </CellHeader>
-      <CellBody></CellBody>
+      <CellBody>
+        <PlayerData >
+          <PlayerDataText label>KILLS</PlayerDataText>
+          <PlayerDataText>10</PlayerDataText>
+        </PlayerData>
+        <PlayerData >
+          <PlayerDataText label>DEATHS</PlayerDataText>
+          <PlayerDataText>12</PlayerDataText>
+        </PlayerData>
+        <PlayerData >
+          <PlayerDataText label>ACCURACY</PlayerDataText>
+          <PlayerDataText>.21</PlayerDataText>
+        </PlayerData>
+      </CellBody>
     </MatchItemContainer>
   )
 }
