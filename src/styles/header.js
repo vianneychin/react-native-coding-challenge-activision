@@ -1,7 +1,6 @@
 import styled from 'styled-components'
+import { StyledText } from './text'
 
-export const HeaderTitle = styled.Text`
+export const HeaderTitle = styled(StyledText)`
   color: ${props => props.theme.color.txt.textTitle};
-  font-weight: 800;
-  font-size: 17.5px;
 `

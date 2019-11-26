@@ -1,17 +1,19 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import { HeaderTitle } from '../../styles/header'
+import { MatchItem } from './MatchItem'
 import styled from 'styled-components'
 
-const StyledText = styled.Text`
-  color: ${props => props.theme.color.txt.textValue};
+const Container = styled.SafeAreaView`
+  background-color: ${props => props.theme.color.bg.background};
+  flex: 1;
 `
 
 export const RecentMatchesScreen = () => {
   return (
-    <View>
-      <StyledText>Testing</StyledText>
-    </View>
+    <Container>
+      <MatchItem />
+    </Container>
   )
 }
 
