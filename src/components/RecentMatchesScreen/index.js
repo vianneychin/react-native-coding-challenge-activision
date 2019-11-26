@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import { HeaderTitle } from '../../styles/header'
+import { HeaderTitle, HeaderWrapper } from '../../styles/header'
 import { MatchItem } from './MatchItem'
 import styled from 'styled-components'
 
@@ -19,7 +19,12 @@ export const RecentMatchesScreen = () => {
 
 RecentMatchesScreen.navigationOptions = {
   headerStyle: {
-    backgroundColor: `rgb(0, 0, 0)`
+    backgroundColor: 'rgb(0, 0, 0)',
+    height: 75
   },
-  headerTitle: <HeaderTitle>RECENT MATCHES</HeaderTitle>
+  headerTitle: (
+    <HeaderWrapper>
+      <HeaderTitle>RECENT MATCHES</HeaderTitle>
+    </HeaderWrapper>
+  )
 }

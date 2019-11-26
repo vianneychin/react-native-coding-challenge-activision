@@ -6,5 +6,4 @@ export const StyledText = styled(Text).attrs(props => ({
   numberOfLines: 1
 }))`
   font-weight: 800;
-  font-size: 17.5px;
 `
