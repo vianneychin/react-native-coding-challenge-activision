@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, Text } from 'react-native'
+import {
+  FlatList,
+  View,
+  Text,
+  ActivityIndicator,
+  StyleSheet
+} from 'react-native'
 import { HeaderTitle, HeaderWrapper } from '../../styles/header'
 import { MatchItem } from './MatchItem'
 import styled from 'styled-components'
-import { cookieUtil } from './util'
+import { cookieUtil, mapUtil, gameModeUtil } from './util'
 
 const Container = styled.SafeAreaView`
   background-color: ${props => props.theme.color.bg.background};
@@ -46,22 +52,25 @@ export const RecentMatchesScreen = () => {
           data={data}
           keyExtractor={item => item.matchID}
           renderItem={({ item }) => {
-            console.log(typeof item.playerStats.accuracy)
             return (
               <MatchItem
                 matchResult={item.result}
-                gameMap={item.map}
-                gameMode={item.mode}
+                gameMap={mapUtil(item.map)}
+                gameMode={gameModeUtil(item.mode)}
                 playerKills={item.playerStats.kills}
                 playerDeaths={item.playerStats.deaths}
-                playerAccuracy={item.playerStats.accuracy}
+                playerAccuracy={item.playerStats.accuracy.toFixed(2)}
               />
             )
           }}
         />
       )
     } else {
-      return <Text>'Loading..'</Text>
+      return (
+        <View style={[styles.container, styles.horizontal]}>
+          <ActivityIndicator size='large' color='#FFFFFF' />
+        </View>
+      )
     }
   }
 
@@ -83,3 +92,15 @@ RecentMatchesScreen.navigationOptions = {
     </HeaderWrapper>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center'
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10
+  }
+})
