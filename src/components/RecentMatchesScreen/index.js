@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { FlatList, ActivityIndicator } from 'react-native'
-import { MatchItem } from './MatchItem'
+import { ActivityIndicator } from 'react-native'
 import { MatchList } from './MatchList'
 import { cookieUtil } from './util'
 import {

@@ -1,70 +1,54 @@
-export const mapUtil = str => {
-  if (str === 'mp_petrograd') {
-    return 'PETROGRAD'
-  }
-  if (str === 'mp_deadzone') {
-    return 'DEADZONE'
-  }
-  if (str === 'mp_hackney_am') {
-    return 'HACKNEY'
-  }
-  if (str === 'mp_piccadilly') {
-    return 'PICCADILLY'
-  }
-  if (str === 'mp_runner') {
-    return 'GUNRUNNER'
-  }
-  if (str === 'mp_spear') {
-    return 'SPEAR'
-  }
-  if (str === 'mp_m_hill') {
-    return 'HILL'
-  }
-  if (str === 'mp_m_pine') {
-    return 'PINE'
-  }
-  if (str === 'mp_m_speedball') {
-    return 'SPEEDBALL'
-  }
-  if (str === 'mp_m_speed') {
-    return 'SPEEDBALL'
-  }
-  if (str === 'mp_downtown_gw') {
-    return 'DOWNTOWN DONETSKY'
-  }
-  if (str === 'mp_cave_am') {
-    return 'CAVE'
-  } else {
-    return 'NEW: ' + str
+export const mapUtil = map => {
+  switch (map) {
+    case 'mp_petrograd':
+      return 'PETROGRAD'
+    case 'mp_deadzone':
+      return 'DEADZONE'
+    case 'mp_hackney_am':
+      return 'HACKNEY'
+    case 'mp_piccadilly':
+      return 'PICCADILLY'
+    case 'mp_runner':
+      return 'GUNRUNNER'
+    case 'mp_spear':
+      return 'SPEAR'
+    case 'mp_m_hill':
+      return 'HILL'
+    case 'mp_m_pine':
+      return 'PINE'
+    case 'mp_m_speedball':
+      return 'SPEEDBALL'
+    case 'mp_m_speed':
+      return 'SPEED'
+    case 'mp_downtown_gw':
+      return 'DOWNTOWN DONETSKY'
+    case 'mp_cave_am':
+      return 'CAVE'
+    default:
+      'NEW: ' + map
   }
 }
 
-export const gameModeUtil = str => {
-  if (str === 'war') {
-    return 'WAR'
-  }
-  if (str === 'dom') {
-    return 'DOMINATION'
-  }
-  if (str === 'dom_hc') {
-    return 'HARDCORE DOMINATION'
-  }
-  if (str === 'conf') {
-    return 'KILL CONFIRMED'
-  }
-  if (str === 'arm') {
-    return 'ARMS RACE'
-  }
-  if (str === 'koth') {
-    return 'KING OF THE HILL'
-  }
-  if (str === 'arena') {
-    return 'ARENA'
-  }
-  if (str === 'hq') {
-    return 'HEADQUARTERS'
-  } else {
-    return 'NEW: ' + str
+export const gameModeUtil = gameMode => {
+  switch (gameMode) {
+    case 'war':
+      return 'WAR'
+    case 'dom':
+      return 'DOMINATION'
+    case 'dom_hc':
+      return 'HARDCORE DOMINATION'
+    case 'conf':
+      return 'KILL CONFIRMED'
+    case 'arm':
+      return 'ARMS RACE'
+    case 'koth':
+      return 'KING OF THE HILL'
+    case 'arena':
+      return 'ARENA'
+    case 'hq':
+      return 'HEADQUARTERS'
+    default:
+      return 'NEW: ' + gameMode
   }
 }
 
