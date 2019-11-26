@@ -89,7 +89,10 @@ export const RecentMatchesScreen = () => {
 RecentMatchesScreen.navigationOptions = {
   headerStyle: {
     backgroundColor: 'rgb(0, 0, 0)',
-    height: 75
+    height: 75,
+    elevation: 0,
+    shadowOpacity: 0,
+    borderBottomWidth: 0
   },
   headerTitle: (
     <HeaderWrapper>

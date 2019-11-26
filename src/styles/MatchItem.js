@@ -34,7 +34,6 @@ export const MatchResult = styled.View`
   justify-content: center;
   align-items: center;
 `
-/* TODO: Dynamically change W/L BG color */
 export const WinOrLose = styled(StyledText)`
   color: ${props => props.theme.color.txt.textTitle};
   font-size: 20px;
