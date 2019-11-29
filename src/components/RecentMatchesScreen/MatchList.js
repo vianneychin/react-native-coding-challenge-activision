@@ -27,6 +27,7 @@ export const MatchList = ({ data }) => {
       data={data}
       keyExtractor={item => item.matchID}
       renderItem={renderItem}
+      initialNumToRender={6}
     />
   )
 }
