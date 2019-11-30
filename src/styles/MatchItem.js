@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { StyledText } from './text'
+import { theme } from '../styles/theme'
 
 export const MatchItemContainer = styled.View`
   height: 180px;
@@ -11,13 +12,13 @@ export const Row = styled.View`
   flex: 1;
 `
 export const CellHeader = styled(Row)`
-  background-color: ${props => props.theme.color.bg.cellHeader};
+  background-color: ${theme.color.bg.cellHeader};
   display: flex;
   flex-direction: row;
   flex: 0.75;
 `
 export const CellBody = styled(Row)`
-  background-color: ${props => props.theme.color.bg.cellBody};
+  background-color: ${theme.color.bg.cellBody};
   display: flex;
   flex-direction: row;
 `
@@ -43,15 +44,15 @@ export const MatchResult = styled.View`
   align-items: center;
 `
 export const WinOrLose = styled(StyledText)`
-  color: ${props => props.theme.color.txt.textTitle};
+  color: ${theme.color.txt.textTitle};
   font-size: 20px;
 `
 export const GameMap = styled(StyledText)`
-  color: ${props => props.theme.color.txt.textTitle};
+  color: ${theme.color.txt.textTitle};
   font-size: 20px;
 `
 export const GameMode = styled(StyledText)`
-  color: ${props => props.theme.color.txt.textValue};
+  color: ${theme.color.txt.textValue};
   font-size: 20px;
 `
 export const PlayerData = styled.View`
@@ -62,9 +63,7 @@ export const PlayerData = styled.View`
 `
 export const PlayerDataText = styled(StyledText)`
   color: ${props =>
-    props.label
-      ? props.theme.color.txt.textTitle
-      : props.theme.color.txt.textValue};
+    props.label ? theme.color.txt.textTitle : theme.color.txt.textValue};
 
   font-size: ${props => (props.label ? '15px' : '25px')};
   position: relative;

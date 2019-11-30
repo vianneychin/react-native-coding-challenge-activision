@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import { Platform } from 'react-native'
 import { StyledText } from './text'
+import { theme } from '../styles/theme'
 
 export const HeaderTitle = styled(StyledText)`
-  color: ${props => props.theme.color.txt.textTitle};
+  color: ${theme.color.txt.textTitle};
   font-size: 20px;
-  font-family: ${props => (Platform.OS === 'android' ? 'Roboto' : 'Arial')};
+  font-family: ${() => (Platform.OS === 'android' ? 'Roboto' : 'Arial')};
   font-weight: bold;
 `
 export const HeaderWrapper = styled.View`
@@ -14,7 +15,7 @@ export const HeaderWrapper = styled.View`
   align-items: center;
 `
 export const Container = styled.SafeAreaView`
-  background-color: ${props => props.theme.color.bg.background};
+  background-color: ${theme.color.bg.background};
   flex: 1;
 `
 export const CenterItem = styled.View`
