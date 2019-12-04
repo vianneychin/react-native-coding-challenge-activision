@@ -4,6 +4,10 @@ import { MatchItem } from './MatchItem'
 import { mapUtil, gameModeUtil, gameResultUtil } from './util'
 
 export const MatchList = ({ data }) => {
+  const getItemLayout = (_, index) => {
+    return { length: 180, offset: 180 * index, index }
+  }
+
   const renderItem = ({ item }) => {
     return (
       <MatchItem
@@ -28,6 +32,7 @@ export const MatchList = ({ data }) => {
       keyExtractor={item => item.matchID}
       renderItem={renderItem}
       initialNumToRender={6}
+      getItemLayout={getItemLayout}
     />
   )
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ActivityIndicator } from 'react-native'
 import { MatchList } from './MatchList'
 import { cookieUtil } from './util'
@@ -16,7 +16,6 @@ const api =
 export const RecentMatchesScreen = () => {
   const [data, setData] = useState('')
   const [error, setError] = useState('')
-  const isCancelled = useRef(false)
 
   const fetchGamerData = async () => {
     try {
@@ -40,9 +39,6 @@ export const RecentMatchesScreen = () => {
 
   useEffect(() => {
     fetchGamerData()
-    return () => {
-      isCancelled.current = true
-    }
   }, [])
 
   const renderContent = () => {
