@@ -7,6 +7,7 @@ export const MatchItemContainer = styled.View`
   display: flex;
   flex-direction: column;
   margin: 15px;
+  box-shadow: 1px 1.5px 1.5px black;
 `
 export const Row = styled.View`
   flex: 1;
