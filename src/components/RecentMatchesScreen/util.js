@@ -24,8 +24,14 @@ export const mapUtil = map => {
       return 'DOWNTOWN DONETSKY'
     case 'mp_cave_am':
       return 'CAVE'
+    case 'mp_cave':
+      return 'CAVE'
+    case 'mp_m_overunder':
+      return 'OVER UNDER'
+    case 'mp_crash2':
+      return 'CRASH'
     default:
-      'NEW: ' + map
+      return map
   }
 }
 
@@ -47,8 +53,10 @@ export const gameModeUtil = gameMode => {
       return 'ARENA'
     case 'hq':
       return 'HEADQUARTERS'
+    case 'siege':
+      return 'SIEGE'
     default:
-      return 'NEW: ' + gameMode
+      return gameMode
   }
 }
 
